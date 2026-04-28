@@ -4,10 +4,10 @@ const app = cloudbase.init({
   env: 'image2-website-d6g82nhtx7d14e750'
 });
 
-export const auth = app.auth({
+export const auth: any = app.auth({
   persistence: 'local'
 });
 
-export const db = app.database();
+export const db: any = app.database();
 
-export default app;
+export default app as any;

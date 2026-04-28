@@ -1,34 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { auth } from '../utils/cloudbase';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkAuth = () => {
-      const user = auth.currentUser;
-      setIsLoggedIn(!!user);
-    };
-    checkAuth();
-    auth.onAuthStateChanged(checkAuth);
-  }, []);
-
-  const handleLogin = async () => {
-    try {
-      await auth.signInWithRedirect({
-        provider: 'WECHAT'
-      });
-    } catch (error) {
-      console.error('登录失败', error);
-    }
-  };
-
-  const handleLogout = async () => {
-    await auth.signOut();
-    navigate('/');
-  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -41,31 +13,14 @@ const Header = () => {
           <Link to="/search" className="text-gray-600 hover:text-indigo-600 transition">
             搜索
           </Link>
-          {isLoggedIn && (
-            <Link to="/publish" className="text-gray-600 hover:text-indigo-600 transition">
-              发布
-            </Link>
-          )}
-          {isLoggedIn ? (
-            <div className="flex items-center gap-4">
-              <Link to="/profile" className="text-gray-600 hover:text-indigo-600 transition">
-                个人中心
-              </Link>
-              <button 
-                onClick={handleLogout}
-                className="text-gray-600 hover:text-red-600 transition"
-              >
-                退出
-              </button>
-            </div>
-          ) : (
-            <button 
-              onClick={handleLogin}
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
-            >
-              微信登录
-            </button>
-          )}
+          <a 
+            href="https://github.com/BJTULYX/prompt-share-website" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-indigo-600 transition"
+          >
+            开源地址
+          </a>
         </div>
       </div>
     </header>

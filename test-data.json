@@ -1,0 +1,72 @@
+[
+  {
+    "title": "超可爱二次元少女头像prompt",
+    "content": "masterpiece, best quality, 1girl, cute, pastel colors, pink hair, twin tails, big eyes, blush, smile, frilled dress, white background, soft lighting, anime style, 8k",
+    "model": "Image2",
+    "style": "二次元",
+    "coverImage": "https://picsum.photos/seed/1/400/300",
+    "description": "适合做头像的可爱二次元少女，颜色柔和，细节丰富",
+    "parameters": {"尺寸": "1024x1024", "步数": "30", "CFG": "7"},
+    "authorName": "AI绘画爱好者",
+    "likeCount": 126,
+    "collectCount": 89,
+    "commentCount": 23,
+    "createdAt": "2026-04-28T12:00:00.000Z"
+  },
+  {
+    "title": "赛博朋克城市夜景prompt",
+    "content": "cyberpunk cityscape at night, neon lights, rain, wet streets, skyscrapers, flying cars, holographic advertisements, dark atmosphere, cinematic lighting, 8k, hyper detailed, blade runner style",
+    "model": "Midjourney",
+    "style": "科幻",
+    "coverImage": "https://picsum.photos/seed/2/400/300",
+    "description": "赛博朋克风格的城市夜景，光影效果拉满",
+    "parameters": {"尺寸": "1920x1080", "步数": "40", "CFG": "8"},
+    "authorName": "科幻设计爱好者",
+    "likeCount": 234,
+    "collectCount": 156,
+    "commentCount": 45,
+    "createdAt": "2026-04-27T14:30:00.000Z"
+  },
+  {
+    "title": "国风山水插画prompt",
+    "content": "traditional chinese ink painting, mountain landscape, river, pine trees, mist, traditional architecture, birds, soft colors, elegant, artistic, high detail, 8k",
+    "model": "Stable Diffusion",
+    "style": "国风",
+    "coverImage": "https://picsum.photos/seed/3/400/300",
+    "description": "中国风水墨山水画，意境悠远",
+    "parameters": {"尺寸": "1024x1536", "步数": "35", "CFG": "7.5"},
+    "authorName": "国风艺术家",
+    "likeCount": 189,
+    "collectCount": 112,
+    "commentCount": 32,
+    "createdAt": "2026-04-26T09:15:00.000Z"
+  },
+  {
+    "title": "写实人像摄影prompt",
+    "content": "photorealistic portrait of a young woman, natural lighting, soft bokeh background, detailed skin texture, brown eyes, wavy hair, casual clothing, candid expression, shot on Sony A7III, 85mm f1.4 lens, high detail, 8k",
+    "model": "DALL·E",
+    "style": "写实",
+    "coverImage": "https://picsum.photos/seed/4/400/300",
+    "description": "超写实人像摄影，细节逼真",
+    "parameters": {"尺寸": "1024x1024", "步数": "45", "CFG": "9"},
+    "authorName": "人像摄影师",
+    "likeCount": 156,
+    "collectCount": 98,
+    "commentCount": 27,
+    "createdAt": "2026-04-25T16:45:00.000Z"
+  },
+  {
+    "title": "治愈系风景插画prompt",
+    "content": "cozy landscape illustration, small cottage in the forest, spring flowers, sunlight filtering through trees, stream, butterflies, warm colors, whimsical, studio ghibli style, high detail, 8k",
+    "model": "Image2",
+    "style": "插画",
+    "coverImage": "https://picsum.photos/seed/5/400/300",
+    "description": "吉卜力风格的治愈系森林小屋插画",
+    "parameters": {"尺寸": "1024x768", "步数": "30", "CFG": "7"},
+    "authorName": "插画师",
+    "likeCount": 201,
+    "collectCount": 134,
+    "commentCount": 38,
+    "createdAt": "2026-04-24T11:20:00.000Z"
+  }
+]

@@ -1,14 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { db } from '../utils/cloudbase';
+import { supabase } from '../utils/supabase';
 
 interface Prompt {
-  _id: string;
+  id: string;
   title: string;
   content: string;
   model: string;
   style: string;
   coverImage: string;
+  description: string;
+  parameters: Record<string, any>;
+  authorName: string;
+  authorId?: string;
+  authorAvatar?: string;
   likeCount: number;
   collectCount: number;
   commentCount: number;
@@ -25,13 +30,38 @@ const Home = () => {
 
   const fetchHotPrompts = async () => {
     try {
-      const res = await db.collection('prompts')
-        .orderBy('likeCount', 'desc')
-        .limit(20)
-        .get();
-      setHotPrompts(res.data as Prompt[]);
+      const { data, error } = await supabase
+        .from('prompts')
+        .select('*')
+        .order('like_count', { ascending: false })
+        .limit(20);
+      
+      if (error) throw error;
+      
+      // 字段映射
+      const mappedData = data.map(item => ({
+        id: item.id,
+        title: item.title,
+        content: item.content,
+        model: item.model,
+        style: item.style,
+        coverImage: item.cover_image,
+        description: item.description,
+        parameters: item.parameters,
+        authorName: item.author_name,
+        likeCount: item.like_count,
+        collectCount: item.collect_count,
+        commentCount: item.comment_count,
+        createdAt: item.created_at
+      }));
+      
+      setHotPrompts(mappedData);
     } catch (error) {
-      console.error('获取热门prompt失败', error);
+      console.error('加载数据失败', error);
+      // 降级加载静态数据
+      const res = await fetch('/prompts.json');
+      const data = await res.json();
+      setHotPrompts(data);
     } finally {
       setLoading(false);
     }
@@ -135,8 +165,8 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {hotPrompts.map((prompt) => (
             <Link
-              key={prompt._id}
-              to={`/prompt/${prompt._id}`}
+              key={prompt.id}
+              to={`/prompt/${prompt.id}`}
               className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition"
             >
               <div className="h-48 bg-gray-100 overflow-hidden">
